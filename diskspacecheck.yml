@@ -22,7 +22,6 @@
       - name: store info
         lineinfile:
           path: "/tmp/disk.txt"
-          regexp: "\\s{{ inventory_hostname }}$"
           line: "space on server {{inventory_hostname}} is {{command_output.stdout_lines }}"
           create: yes
         delegate_to: localhost
