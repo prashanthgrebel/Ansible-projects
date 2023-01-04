@@ -1,1 +1,28 @@
 
+---
+
+  - name: checking disk
+    hosts: all
+    become: yes
+    become_user: prashanthg
+    gather_facts: no
+
+    tasks:
+      - name: checking disk on servers
+        shell: df -hT | grep -w  / |sed  's/G//g' | awk '{if($4>5)print $0}'
+        no_log: true
+
+        register: command_output
+
+      - name: command output
+        debug:
+          #msg: "Lag on server {{inventory_hostname}}, is {{command_output.stdout_lines }}"
+          msg: "{{ command_output.stdout_lines }}"
+
+      - name: store info
+        lineinfile:
+          path: "/tmp/disk.txt"
+          regexp: "\\s{{ inventory_hostname }}$"
+          line: "space on server {{inventory_hostname}} is {{command_output.stdout_lines }}"
+          create: yes
+        delegate_to: localhost
