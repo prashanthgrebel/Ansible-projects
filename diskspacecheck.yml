@@ -1,4 +1,3 @@
-
 ---
 
   - name: checking disk
@@ -9,9 +8,9 @@
 
     tasks:
       - name: checking disk on servers
-        shell: df -hT | grep -w  / |sed  's/G//g' | awk '{if($4>5)print $0}'
+        shell: df -hT | grep -w  / |sed  "s/%//g" | awk '{if($6>10)print $0}'
         no_log: true
-
+        changed_when: false
         register: command_output
 
       - name: command output
@@ -21,7 +20,8 @@
 
       - name: store info
         lineinfile:
-          path: "/tmp/disk.txt"
-          line: "space on server {{inventory_hostname}} is {{command_output.stdout_lines }}"
+          path: "/home/prashanthg/disk.csv"
+          #regexp: "\\s{{ inventory_hostname }}$"
+          line: "{{inventory_hostname}} {{command_output.stdout_lines }}"
           create: yes
         delegate_to: localhost
