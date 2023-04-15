@@ -1,0 +1,12 @@
+---
+ - hosts: servers_test
+   user: prashanthg
+   become: yes
+   gather_facts: False
+
+   tasks:
+    - name: Change users password
+      user: name={{ item }} update_password=always password={{ '9246' | password_hash('sha512') }}
+      
+      with_items:
+        - [ 'prashanthg','pavan','sreedhar' ]
