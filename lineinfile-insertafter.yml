@@ -1,0 +1,17 @@
+---
+  - name: Learning lineinfile module for insertafter
+    hosts: servers_test
+    remote_user:
+    become: true
+
+    vars:
+      text: "\t\tserver_name 192.168.1.113;"
+
+    tasks:
+      - name: lineinfile module
+        lineinfile:
+          path: /etc/nginx/conf.d/test.conf
+          regexp: '^listen'
+          insertafter: 'listen	801;'
+          line: "{{ text }}"
+          state: present
