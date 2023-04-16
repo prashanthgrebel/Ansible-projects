@@ -15,3 +15,12 @@
           insertafter: 'listen	801;'
           line: "{{ text }}"
           state: present
+
+      - name: lineinfile insertbefore
+        lineinfile:
+          path: /etc/nginx/conf.d/test.conf
+          regexp: '^listen'
+          insertbefore: 'listen	801;'
+          line: "\t#insertbrefore using lineinfile module"   
+          state: present
+
