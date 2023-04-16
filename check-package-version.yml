@@ -1,0 +1,25 @@
+---
+  - name: Get package version for nginx 
+    hosts: servers_test
+    remote_user: prashanthg 
+    become: yes
+
+    vars:
+
+    tasks:
+      - name: Get package version for nginx
+        command: nginx -version
+        register: nginx_version
+      
+      - name: nginx_version_output
+        debug:
+          var:  nginx_version.stderr_lines
+
+      - name: storing data
+        lineinfile:
+          path: "/home/prashanthg/nginx-version.csv"
+          line: "{{ inventory_hostname }} {{ nginx_version.stderr_lines  }}"
+          create: yes
+        delegate_to: localhost
+
+
