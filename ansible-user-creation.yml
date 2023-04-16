@@ -4,9 +4,20 @@
    become: yes
    gather_facts: False
 
+
    tasks:
     - name: Change users password
-      user: name={{ item }} update_password=always password={{ '9246' | password_hash('sha512') }}
-      
+      user: name={{ item }} update_password=always password={{ '9246' | password_hash('sha512') }}     
       with_items:
         - [ 'prashanthg','pavan','sreedhar' ]
+ ## ADD USERS TO SUDOERS FILE###
+    - name: adding users to sudoers file
+      lineinfile: 
+        path: /etc/sudoers
+        line: '{{ item }} ALL=(ALL) NOPASSWD:ALL'
+      with_items:
+        - [ 'prashanthg','pavan','sreedhar' ]
+## ADD USERS TO SUDOERS FILE UNDER SPECIFIC GROUP####
+
+      
+           
