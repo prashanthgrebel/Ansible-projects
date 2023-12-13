@@ -123,7 +123,7 @@ higher) installed.
 * Force users to change password on their first login -
 
 ```
-- name: force the user to change the password on the first login
-  command: passwd -e {{ item }}
-  with_items: "{{ users }}"
+  - name: force the user to change the password on the first login
+    command: passwd -e {{ item }}
+    with_items: "{{ users }}"
 ```
