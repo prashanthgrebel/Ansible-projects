@@ -19,3 +19,6 @@ You don’t need to install any other software or firewall ports on the client s
 to them. Ansible then executes these modules (over SSH by default) and removes them when finished.
 Your library of modules can reside on any machine, and there are no servers, daemons, or databases
 required.
+
+
+![image](https://github.com/prashanthgrebel/Ansible-projects/assets/92351464/bb3d5cf9-be7a-49b7-8850-4547aee743c7)
