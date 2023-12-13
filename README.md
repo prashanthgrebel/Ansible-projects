@@ -40,6 +40,7 @@ higher) installed.
 * Required ssh user credentials / passwordless login
 
 # Ansible Modules for system Admin:- 
+* ping module
 * user module
 * copy module
 * fetch module
