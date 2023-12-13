@@ -93,4 +93,4 @@ higher) installed.
 * copy -
     ```ansible -i hosts prod_dev  -m copy  -a "src=./hosts dest=/tmp/ owner=prashanthg group=root mode=777" -b -k```
 * fetch -
-     ```ansible -i hosts prod_dev  -m fetch  -a "src=/etc/hosts dest=/tmp/{{ inventory_hostname }}-hosts owner=prashanthg group=root mode=777" -b -k```
+     ```ansible -i hosts prod_dev  -m fetch  -a "src=/etc/hosts dest=/tmp/{{ inventory_hostname }}-hosts " -b -k```
