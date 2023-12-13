@@ -127,3 +127,9 @@ higher) installed.
     command: passwd -e {{ item }}
     with_items: "{{ users }}"
 ```
+* Set user expire days -
+```
+  - name: set user expire days
+    command: chage -M 30 {{ item }}
+    with_items: "{{ users }}"
+```
