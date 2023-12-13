@@ -37,3 +37,4 @@ Mainly, there are two types of machines when we talk about deployment −
 higher) installed.
 * Note − Windows does not support a control machine.
 * By default, Ansible uses ssh to manage a remote machine.
+* Required ssh user credentials / passwordless login
