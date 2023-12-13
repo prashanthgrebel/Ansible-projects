@@ -119,3 +119,11 @@ higher) installed.
         shell: /bin/bash
       with_items: "{{ users }}"
 ```
+
+* Force users to change password on their first login -
+
+  ```
+    - name: force the user to change the password on the first login
+      command: passwd -e {{ item }}
+      with_items: "{{ users }}"
+```
