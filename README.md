@@ -83,4 +83,8 @@ higher) installed.
   Try to connect to host, verify a usable python and return pong on success. 
 
   ``` #ansible -i hosts prod_dev  -m ping```
+
+
+  ![image](https://github.com/prashanthgrebel/Ansible-projects/assets/92351464/4e80b018-c679-44b8-b924-12cdb690ee7f)
+
         
