@@ -27,3 +27,13 @@ required.
 
 
 # Environment Setup :-
+Mainly, there are two types of machines when we talk about deployment −
+
+* Control machine − Machine from where we can manage other machines.
+* Remote machine − Machines that are handled/controlled by the control machine.
+
+    # Control Machine Requirements
+* Ansible can be run from any machine with Python 2 (versions 2.6 or 2.7) or Python 3 (versions 3.5 and
+higher) installed.
+* Note − Windows does not support a control machine.
+* By default, Ansible uses ssh to manage a remote machine.
