@@ -92,6 +92,6 @@ higher) installed.
 
 # user module:- 
 * create user -
-```# ansible -i hosts prod_dev  -m user -a "user=testinguser1 password={{ '9246' | password_hash('sha512') }} shell=/bin/bash" -b -k```
+      ```# ansible -i hosts prod_dev  -m user -a "user=testinguser1 password={{ '9246' | password_hash('sha512') }} shell=/bin/bash" -b -k```
 * delete user -
-  ```ansible -i hosts prod_dev  -m user -a "user=testinguser1 state=absent remove=yes" -b -k```
+      ```ansible -i hosts prod_dev  -m user -a "user=testinguser1 state=absent remove=yes" -b -k```
