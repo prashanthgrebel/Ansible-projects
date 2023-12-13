@@ -90,3 +90,5 @@ higher) installed.
       ```ansible -i hosts prod_dev  -m user -a "user=testinguser1 state=absent remove=yes" -b -k```
 * shell -
    ```ansible -i hosts prod_dev  -m shell  -a "ls -lrth " -b -k  ```
+* copy -
+    ```ansible -i hosts prod_dev  -m copy  -a "src=./hosts dest=/tmp/" -b -k```
