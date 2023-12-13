@@ -36,7 +36,17 @@ Mainly, there are two types of machines when we talk about deployment −
 * Ansible can be run from any machine with Python 2 (versions 2.6 or 2.7) or Python 3 (versions 3.5 and
 higher) installed.
 * Note − Windows does not support a control machine.
-* By default, Ansible uses ssh to manage a remote machine.
+* By default, Ansible uses SSH to manage a remote machine.
 * Required ssh user credentials / passwordless login
 
 # Ansible Modules for system Admin:- 
+* user module
+* copy module
+* fetch module
+* file module
+* lineinfile module
+* archive module
+* unarchive module
+* yum / apt / dnf module
+* service module
+  
