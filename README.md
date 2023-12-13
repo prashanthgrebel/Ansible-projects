@@ -15,3 +15,7 @@ You can orchestrate the entire application environment no matter where it’s de
 You don’t need to install any other software or firewall ports on the client systems you want to automate. You also don’t have to set up a separate management structure.
 
 # How Ansible Works? :-
+  Ansible works by connecting to your nodes and pushing out small programs, called "Ansible Modules"
+to them. Ansible then executes these modules (over SSH by default) and removes them when finished.
+Your library of modules can reside on any machine, and there are no servers, daemons, or databases
+required.
