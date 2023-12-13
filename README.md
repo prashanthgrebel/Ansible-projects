@@ -94,3 +94,26 @@ higher) installed.
     ```ansible -i hosts prod_dev  -m copy  -a "src=./hosts dest=/tmp/ owner=prashanthg group=root mode=777" -b -k```
 * fetch -
      ```ansible -i hosts prod_dev  -m fetch  -a "src=/etc/hosts dest=/tmp/{{ inventory_hostname }}-hosts " -b -k```
+
+# User Module:-
+```
+---
+
+- name: user creation
+  hosts: prod_dev
+  become: True
+  remote_user: prashanthg
+
+  vars:
+    users:
+      - ['test1','test2','test3']
+
+  tasks: 
+    - name: User creation
+      user:
+        name: "{{ item }}"
+        update_password: always
+        password: "{{ '9246' | password_hash('sha512') }}"
+        shell: /bin/bash
+      with_items: "{{ users }}"
+```
