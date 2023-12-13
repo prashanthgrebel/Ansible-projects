@@ -82,9 +82,14 @@ higher) installed.
   # ping module:- 
   Try to connect to host, verify a usable python and return pong on success. 
 
-  ``` #ansible -i hosts prod_dev  -m ping```
+  ```# ansible -i hosts prod_dev  -m ping```
 
 
   ![image](https://github.com/prashanthgrebel/Ansible-projects/assets/92351464/4e80b018-c679-44b8-b924-12cdb690ee7f)
 
-        
+
+# user module:- 
+* create user -
+```# ansible -i hosts prod_dev  -m user -a "user=testinguser1 password={{ '9246' | password_hash('sha512') }} shell=/bin/bash" -b -k```
+* delete user -
+  ```ansible -i hosts prod_dev  -m user -a "user=testinguser1 state=absent remove=yes" -b -k```
