@@ -95,7 +95,9 @@ higher) installed.
 * fetch -
      ```ansible -i hosts prod_dev  -m fetch  -a "src=/etc/hosts dest=/tmp/{{ inventory_hostname }}-hosts " -b -k```
 
-# User Module:-
+# ==> User Module:-
+
+* User creation -
 ```
 ---
 
