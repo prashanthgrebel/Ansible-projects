@@ -41,6 +41,8 @@ higher) installed.
 
 # Ansible Modules for system Admin:- 
 * ping module
+* command module
+* shell module
 * user module
 * copy module
 * fetch module
