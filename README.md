@@ -53,7 +53,28 @@ higher) installed.
   # Ansible adhoc Commands:-
     Adhoc commands are one-off commands that are executed on the command line of an Ansible control node, without the need for a playbook or any additional configuration. These commands are used to quickly perform tasks on one or more managed nodes
 
-     # pind module:
-      ansible.cfg
+# Create Ansible configuration:-
+
+      1) ansible.cfg  ----> config file
+      
             [defaults]
             inventory  = /home/prashanthg/Dev_Ops-Projects/Ansible_project/hosts
+
+     2) hosts ------------>  Inventory file
+            [all:vars]
+            ansible_connection=ssh
+            ansible_ssh_user=prashanthg
+            ansible_ssh_pass=9246
+
+
+            [prod_dev]
+            192.168.1.115
+            192.168.1.116
+
+            [prod]
+            192.168.1.115
+
+            [dev]
+            192.168.1.116
+
+            
