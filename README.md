@@ -154,7 +154,7 @@ higher) installed.
         append: yes
 ```
 
-# Multi-user creation with additional settings -
+* Multi-user creation with additional settings -
 ```
 ---
 
