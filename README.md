@@ -152,3 +152,55 @@ higher) installed.
 # add user to mmultiple groups
         groups: admins,developers
         append: yes
+```
+
+# Multi-user creation with additional settings -
+```
+---
+
+- name: user creation
+  hosts: prod_dev
+  become: True
+  remote_user: prashanthg
+
+  vars:
+    users:
+      - {name: 'testuser1', uid: 1080, groups: ['admin', 'docker']}
+      - {name: 'testuser2', uid: 1078, groups: ['docker','prashanthg']}
+      - {name: 'testuser', uid: 1079, groups: ['docker']}
+
+
+  tasks: 
+    - name: Multi-user creation with additional settings
+      user:
+        name: "{{ item.name }}"
+        uid: "{{ item.uid }}"
+        groups: "{{ item.groups }}"
+        update_password: always
+        password: "{{ '9246' | password_hash('sha512') }}"
+        shell: /bin/bash
+        append: yes
+      with_items: "{{ users }}"
+
+```
+# User Deletion -
+```
+---
+
+- name: user deletion
+  hosts: prod_dev
+  become: True
+  remote_user: prashanthg
+
+  vars:
+    users:
+      - ['test1','test2','test3','test4','testuser1','testuser2','testuser']
+
+  tasks: 
+    - name: User deletion
+      user:
+        name: "{{ item }}"
+        state: absent
+        remove: yes
+      with_items: "{{ users }}"
+```
