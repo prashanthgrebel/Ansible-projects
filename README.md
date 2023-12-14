@@ -138,3 +138,17 @@ higher) installed.
     command: chage -M 30 {{ item }}
     with_items: "{{ users }}"
 ```
+* Set uid and groups for user -
+```
+  - name: set gid uid for user
+      user:
+        name: test4
+        password: "{{ '9246' | password_hash('sha512') }}"
+        shell: /bin/bash
+        uid: 1077
+        group: docker
+
+
+# add user to mmultiple groups
+        groups: admins,developers
+        append: yes
