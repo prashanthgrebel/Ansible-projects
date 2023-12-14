@@ -95,6 +95,10 @@ higher) installed.
 * fetch -
      ```ansible -i hosts prod_dev  -m fetch  -a "src=/etc/hosts dest=/tmp/{{ inventory_hostname }}-hosts " -b -k```
 
+  # Playbooks: -
+  * playbook syntax check-
+     ```ansible-playbook --syntax-check <yml file>```
+
 # ==> User Module:-
 
 * User creation -
