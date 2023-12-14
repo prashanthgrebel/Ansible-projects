@@ -100,6 +100,7 @@ higher) installed.
      ```ansible-playbook --syntax-check <yml file>```
 
 # ==> User Module:-
+  * Playbook exec. command syntax- ``` ansible-playbook -i hosts user-creation.yml``` 
 
 * User creation -
 ```
