@@ -183,7 +183,7 @@ higher) installed.
       with_items: "{{ users }}"
 
 ```
-# User Deletion -
+* User Deletion -
 ```
 ---
 
