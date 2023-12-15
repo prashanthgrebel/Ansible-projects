@@ -277,5 +277,23 @@ higher) installed.
         mode: '0644'
       with_items: "{{ source_files }}" 
 ```
+# ==> Fetch Module : -
+```
+---
+
+- name: user creation
+  hosts: prod_dev
+  become: True
+  remote_user: prashanthg
+
+
+  tasks:
+    - name: fetching files from other servers.
+      fetch:
+        src: /etc/hosts
+        dest: /tmp/{{ inventory_hostname }}-hosts.txt
+        flat: yes
+```
+
 
 
