@@ -99,6 +99,37 @@ higher) installed.
   * playbook syntax check-
      ```ansible-playbook --syntax-check <yml file>```
 
+# ==> Shell Module: - with Debug Module
+
+```
+---
+
+- name: user creation
+  hosts: prod_dev
+  become: True
+  remote_user: prashanthg
+
+  tasks:
+    - name: checking uptime
+      shell: uptime
+      register: uptime_results
+
+    - name: debug
+      debug:
+        var: uptime_results
+
+    - name: debug
+      debug:
+        msg: Checking  uptime_results for "{{ inventory_hostname}} {{uptime_results.stdout_lines}}"
+
+    - name: store uptime_results to file in ansible machine
+      lineinfile:
+        path: /tmp/uptime_results.csv
+        line: "{{ inventory_hostname}},{{uptime_results.stdout}}"
+        create: yes
+      delegate_to: localhost
+```
+
 # ==> User Module:-
   * Playbook exec. command syntax- ``` ansible-playbook -i hosts user-creation.yml``` 
 
