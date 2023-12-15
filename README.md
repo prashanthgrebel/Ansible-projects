@@ -294,6 +294,29 @@ higher) installed.
         dest: /tmp/{{ inventory_hostname }}-hosts.txt
         flat: yes
 ```
+* Multi files fetch-
+```
+---
+
+- name: user creation
+  hosts: prod_dev
+  become: True
+  remote_user: prashanthg
+
+  vars:
+    fetched_files:
+      - {src: '/etc/hosts', dest: '/tmp/hosts/{{ inventory_hostname }}-hosts.txt'}
+      - {src: '/home/prashanthg/file_archive.yml', dest: '/tmp/files/{{ inventory_hostname }}-file_archive.yml'}
+
+
+  tasks:
+    - name: fetching files from other servers.
+      fetch:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+        flat: yes
+      with_items: "{{ fetched_files }}"
+```
 
 
 
