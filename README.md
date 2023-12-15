@@ -251,5 +251,31 @@ higher) installed.
         owner: prashanthg
         group: docker
         mode: '0644'
-      with_items: "{{ files }}" 
+      with_items: "{{ files }}"
 ```
+# Method- 2
+```
+---
+
+- name: copy files
+  hosts: prod_dev
+  become: True
+  remote_user: prashanthg
+
+  vars:
+    source_files:
+      - /tmp/test.txt
+      - /tmp/test1.txt
+      - /tmp/test2.txt
+  tasks:
+    - name: copy files
+      copy: 
+        src: "{{ item }}"
+        dest: /home/prashanthg/
+        owner: prashanthg
+        group: root
+        mode: '0644'
+      with_items: "{{ source_files }}" 
+```
+
+
