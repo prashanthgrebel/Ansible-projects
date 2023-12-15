@@ -253,7 +253,7 @@ higher) installed.
         mode: '0644'
       with_items: "{{ files }}"
 ```
-# Method- 2
+* Method- 2
 ```
 ---
 
