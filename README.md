@@ -208,13 +208,13 @@ higher) installed.
 ```
 ---
 
-- name: user creation
+- name: copy
   hosts: prod_dev
   become: True
   remote_user: prashanthg
 
   tasks:
-    - name: 
+    - name: copy files to dest. nodes
       copy: 
         src: /tmp/test.txt
         dest: /tmp/file.txt
@@ -227,4 +227,29 @@ higher) installed.
         mode: u+rw,g-wx,o-rwx
         # backup original file 
         backup: yes
+```
+
+* Multiple files copy : Method 1-
+```
+---
+
+- name: user creation
+  hosts: prod_dev
+  become: True
+  remote_user: prashanthg
+
+  vars:
+    files:
+      - {src: '/tmp/test.txt', dest: '/tmp/'}
+      - {src: '/tmp/test1.txt', dest: '/home/prashanthg'}
+
+  tasks:
+    - name: 
+      copy: 
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+        owner: prashanthg
+        group: docker
+        mode: '0644'
+      with_items: "{{ files }}" 
 ```
