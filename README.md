@@ -320,8 +320,57 @@ NOTE: ``` * src: is Remote machine path to fetch the files
         flat: yes
       with_items: "{{ fetched_files }}"
 ```
-# ==> File module: -
+# ==> File Module: -
 
 * Refer: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html
+
+# ==> Lineinfile Module: -
+
+```
+---
+  - name: Learning lineinfile module for insertafter
+    hosts: prod_dev
+    remote_user: prashanthg
+    become: true
+
+    vars:
+      text: "\t\tserver_name 192.168.1.113;"
+
+    tasks:
+      - name: Replace a localhost entry with our own
+        lineinfile:
+          path: /etc/hosts
+          regexp: '^127\.0\.0\.1'
+          line: 127.0.0.1 localhost
+          owner: root
+          group: root
+          mode: '0644'
+          backup: yes 
+
+      - name: Replace a localhost entry searching for a literal string to avoid escaping
+       lineinfile:
+          path: /etc/hosts
+          search_string: '127.0.0.1'
+          line: 127.0.0.1 localhost
+          owner: root
+          group: root
+          mode: '0644'
+
+      - name: lineinfile module
+        lineinfile:
+          path: /etc/nginx/conf.d/test.conf
+          regexp: '^listen'
+          insertafter: 'listen	801;'
+          line: "{{ text }}"
+          state: present
+
+      - name: lineinfile insertbefore
+        lineinfile:
+          path: /etc/nginx/conf.d/test.conf
+          regexp: '^listen'
+          insertbefore: 'listen	801;'
+          line: "\t#insertbrefore using lineinfile module"   
+          state: present
+```
 
 
