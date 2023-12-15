@@ -43,6 +43,7 @@ higher) installed.
 * ping module
 * command module
 * shell module
+* debug module {register ,var, msg}
 * user module
 * copy module
 * fetch module
