@@ -320,6 +320,8 @@ NOTE: ``` * src: is Remote machine path to fetch the files
         flat: yes
       with_items: "{{ fetched_files }}"
 ```
+# ==> File module: -
 
+* Refer: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html
 
 
