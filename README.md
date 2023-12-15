@@ -278,8 +278,9 @@ higher) installed.
       with_items: "{{ source_files }}" 
 ```
 # ==> Fetch Module : -
-NOTE: * src: is Remote machine path to fetch the files
-      * dest: Ansible Engine path to save files
+NOTE: ``` * src: is Remote machine path to fetch the files
+          * dest: is Ansible Engine path to save files
+      ```
 ```
 ---
 
