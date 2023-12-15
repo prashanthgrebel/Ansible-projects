@@ -205,3 +205,26 @@ higher) installed.
       with_items: "{{ users }}"
 ```
 # ==> Copy Module
+```
+---
+
+- name: user creation
+  hosts: prod_dev
+  become: True
+  remote_user: prashanthg
+
+  tasks:
+    - name: 
+      copy: 
+        src: /tmp/test.txt
+        dest: /tmp/file.txt
+        owner: prashanthg
+        group: docker
+        #Copy file with owner and permission
+        mode: '0644'  # 1
+        mode: u=rw,g=r,o=r # 2
+        # adding some permissions and removing other
+        mode: u+rw,g-wx,o-rwx
+        # backup original file 
+        backup: yes
+```
