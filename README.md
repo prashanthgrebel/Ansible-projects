@@ -405,4 +405,9 @@ NOTE: ``` * src: is Remote machine path to fetch the files
           state: present
 ```
 
+# ==>  Archive Module: - 
+* Refer: https://docs.ansible.com/ansible/latest/collections/community/general/archive_module.html
+# ==>  Unarchive Module: - 
+* Refer: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html
+
 
