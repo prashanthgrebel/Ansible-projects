@@ -53,7 +53,8 @@ higher) installed.
 * unarchive module
 * yum / apt / dnf module
 * service module
-* 
+* setup Module 
+
   # Ansible adhoc Commands:-
     Adhoc commands are one-off commands that are executed on the command line of an Ansible control node, without the need for a playbook or any additional configuration. These commands are used to quickly perform tasks on one or more managed nodes
 
