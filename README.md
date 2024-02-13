@@ -417,3 +417,24 @@ NOTE: ``` * src: is Remote machine path to fetch the files
 
 
 {{ ansible_facts.hostname }} {{ ansible_facts.default_ipv4.address }} {{ ansible_facts.os_family }} {{ ansible_facts.distribution }} {{ ansible_facts.distribution_version }}
+
+
+```
+---
+- name: user creation
+  hosts: prod_dev
+  become: True
+  remote_user: prashanthg
+
+  tasks:
+    - name: template testing
+      template:
+        src: ./os-info_test.j2
+        dest: /tmp/os-info_test.txt
+
+    - name: fetching files from other servers.
+      fetch:
+        src: /tmp/os-info_test.txt
+        dest: /tmp/{{ inventory_hostname }}-os-info.txt
+        flat: yes
+```
