@@ -415,9 +415,14 @@ NOTE: ``` * src: is Remote machine path to fetch the files
 
 
 
+# Ansible facts and magic variables
 
+```
+# ansible localhost -m setup
+```
+```
 {{ ansible_facts.hostname }} {{ ansible_facts.default_ipv4.address }} {{ ansible_facts.os_family }} {{ ansible_facts.distribution }} {{ ansible_facts.distribution_version }}
-
+```
 
 ```
 ---
