@@ -421,6 +421,20 @@ NOTE: ``` * src: is Remote machine path to fetch the files
 # ansible localhost -m setup
 ```
 ```
+IPv4 :{{ ansible_facts.default_ipv4.address }}
+IPv6 : {{ ansible_facts.default_ipv6.address }}
+TOATL MEMORY: {{ ansible_facts.memtotal_mb }}
+FREE MEMORY: {{ ansible_facts.memfree_mb}}
+MEMORY: {{ ansible_facts.memory_mb}}
+KERNEL: {{ ansible_facts.kernel}}
+KERNEL_VERSION: {{ ansible_facts.kernel_version }}
+OS_FAMILY: {{ ansible_facts.os_family }}
+DNS: {{ ansible_facts.dns.nameservers }}kk0
+OS_DISTRIBUTION: {{ ansible_facts.distribution.description }}
+
+
+
+
 {{ ansible_facts.hostname }} {{ ansible_facts.default_ipv4.address }} {{ ansible_facts.os_family }} {{ ansible_facts.distribution }} {{ ansible_facts.distribution_version }}
 ```
 
